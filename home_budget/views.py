@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import wydatek, przychod
 
 def home(request):
-    return render(request, 'home_budget/home.html')
+    return render(request, 'home_budget/base.html')
 
 def lista_wydatkow(request):
     wydatki = wydatek.objects.all()
