@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.conf import settings
 
 class transakcja(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     nazwa = models.CharField(max_length=50)
     kategoria = models.CharField(max_length=50)
     kwota = models.FloatField()

@@ -2,6 +2,13 @@
 
 {% block content %}
     <div>
-        Lista przychodów
+        <h2>Lista przychodów</h2>
+        <ul>
+            {% for przychod in przychody %}
+                <div>
+                    {{ przychod.nazwa }} - {{ przychod.kwota }}
+                </div>
+            {% endfor %}
+        </ul>
     </div>
 {% endblock %}
