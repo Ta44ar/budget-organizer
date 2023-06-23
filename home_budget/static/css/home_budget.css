@@ -9,3 +9,7 @@
 .content {
     margin-left: 40px;
 }
+
+.wydatek-form textarea, .wydatek-form input {
+    width: 100%;
+}

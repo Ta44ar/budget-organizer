@@ -5,10 +5,18 @@
         <link rel="stylesheet" href="{% static 'css/home_budget.css' %}">
     </head>
     <body>
+        {% if request.path == '/' %}
         <div class="page-header">
             <h1>Organizator budżetu domowego</h1>
-            {% block content %}
-            {% endblock %}
+            <ul class="nav">
+                <li><a href="{% url 'lista_wydatkow' %}">Lista wydatków</a></li>
+                <li><a href="{% url 'lista_przychodow' %}">Lista przychodów</a></li>
+                <li><a href="{% url 'zestawienie' %}">Zestawienie</a></li>
+            </ul>
         </div>
+        {% endif %}
+        
+        {% block content %}
+        {% endblock %}
     </body>
 </html>

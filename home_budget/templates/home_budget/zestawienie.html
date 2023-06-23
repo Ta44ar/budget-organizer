@@ -1,0 +1,30 @@
+{% extends 'home_budget/base.html' %}
+
+{% block content %}
+    <h2>Zestawienie wydatków i przychodów</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Kwota</th>
+                <th>Rodzaj</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for wydatek in wydatki %}
+            <tr>
+                <td>{{ wydatek.nazwa }}</td>
+                <td>{{ wydatek.kwota }}</td>
+                <td>Wydatek</td>
+            </tr>
+            {% endfor %}
+            {% for przychod in przychody %}
+            <tr>
+                <td>{{ przychod.nazwa }}</td>
+                <td>{{ przychod.kwota }}</td>
+                <td>Przychód</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
