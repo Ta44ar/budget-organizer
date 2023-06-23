@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.conf import settings
 
-class transakcja(models.Model):
+class Transakcja(models.Model):
     autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     nazwa = models.CharField(max_length=50)
     kategoria = models.CharField(max_length=50)
@@ -14,11 +14,11 @@ class transakcja(models.Model):
 
     class Meta:
         abstract = True
-        verbose_name = "transakcja"
+        verbose_name = "Transakcja"
         verbose_name_plural = "transakcje"
 
-class wydatek(transakcja):
+class Wydatek(Transakcja):
     pass
 
-class przychod(transakcja):
+class Przychod(Transakcja):
     pass
