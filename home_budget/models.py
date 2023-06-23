@@ -15,10 +15,16 @@ class Transakcja(models.Model):
     class Meta:
         abstract = True
         verbose_name = "Transakcja"
-        verbose_name_plural = "transakcje"
+        verbose_name_plural = "Transakcje"
 
 class Wydatek(Transakcja):
     pass
+    class Meta:
+        verbose_name = "Wydatek"
+        verbose_name_plural = "Wydatki"
 
 class Przychod(Transakcja):
     pass
+    class Meta:
+        verbose_name = "Przychod"
+        verbose_name_plural = "Przychody"

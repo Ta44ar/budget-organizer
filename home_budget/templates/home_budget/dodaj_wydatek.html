@@ -1,0 +1,10 @@
+{% extends 'home_budget/base.html' %}
+
+{% block content %}
+    <h2>Nowy wydatek</h2>
+    <form method="POST" class="wydatek-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
