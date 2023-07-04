@@ -16,7 +16,7 @@
                     {% for wydatek in wydatki %}
                     <tr>
                         <td>{{ wydatek.nazwa }}</td>
-                        <td>{{ wydatek.kwota }}</td>
+                        <td>{{ wydatek.kwota }} zł</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -35,7 +35,7 @@
                     {% for przychod in przychody %}
                     <tr>
                         <td>{{ przychod.nazwa }}</td>
-                        <td>{{ przychod.kwota }}</td>
+                        <td>{{ przychod.kwota }} zł</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -43,10 +43,10 @@
         </div>
     </div>
     <h3>Podsumowanie</h3>
-    <p>Suma przychodów: {{ przychody_sum }}</p>
-    <p>Suma wydatków: {{ wydatki_sum }}</p>
+    <p>Suma przychodów: {{ suma_p|floatformat:2 }} zł</p>
+    <p>Suma wydatków: {{ suma_w|floatformat:2 }} zł</p>
     <h3>Bilans</h3>
-    <p>{{ bilans }}</p>
+    <p>{{ bilans|floatformat:2 }} zł</p>
     <button type="button">
         <a href="{% url 'home' %}" class="btn btn-primary">Wróć</a>
     </button>

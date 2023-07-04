@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.views import LoginView
+from django.db.models import Sum
 from django.utils import timezone
 from .models import Wydatek, Przychod
 from .forms import WydatekForm, PrzychodForm
@@ -44,4 +44,17 @@ def dodaj_przychod(request):
 def zestawienie(request):
     wydatki = Wydatek.objects.all()
     przychody = Przychod.objects.all()
-    return render(request, 'home_budget/zestawienie.html', {'wydatki': wydatki, 'przychody': przychody})
+
+    suma_p = Przychod.objects.aggregate(Sum('kwota'))['kwota__sum'] or 0.00
+    suma_w = Wydatek.objects.aggregate(Sum('kwota'))['kwota__sum'] or 0.00
+    bilans = suma_p - suma_w
+
+    context = {
+        'przychody': przychody,
+        'wydatki': wydatki,
+        'suma_p': suma_p,
+        'suma_w': suma_w,
+        'bilans': bilans,
+    }
+
+    return render(request, 'home_budget/zestawienie.html', context)
