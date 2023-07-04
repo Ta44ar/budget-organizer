@@ -5,6 +5,9 @@
     <form method="POST" class="przychod-form">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type="submit" class="save btn btn-default">Potwierdź</button>
+        <button type="button">
+            <a href="{% url 'lista_przychodow' %}" class="btn btn-primary">Wróć</a> <!-- Dodany guzik "wróć" -->
+        </button>
     </form>
 {% endblock %}

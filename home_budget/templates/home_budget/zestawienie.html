@@ -2,29 +2,52 @@
 
 {% block content %}
     <h2>Zestawienie wydatków i przychodów</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Nazwa</th>
-                <th>Kwota</th>
-                <th>Rodzaj</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for wydatek in wydatki %}
-            <tr>
-                <td>{{ wydatek.nazwa }}</td>
-                <td>{{ wydatek.kwota }}</td>
-                <td>Wydatek</td>
-            </tr>
-            {% endfor %}
-            {% for przychod in przychody %}
-            <tr>
-                <td>{{ przychod.nazwa }}</td>
-                <td>{{ przychod.kwota }}</td>
-                <td>Przychód</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div style="display: flex;">
+        <div style="flex: 1;">
+            <h3>Wydatki</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Kwota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for wydatek in wydatki %}
+                    <tr>
+                        <td>{{ wydatek.nazwa }}</td>
+                        <td>{{ wydatek.kwota }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div style="flex: 1;">
+            <h3>Przychody</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Kwota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for przychod in przychody %}
+                    <tr>
+                        <td>{{ przychod.nazwa }}</td>
+                        <td>{{ przychod.kwota }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h3>Podsumowanie</h3>
+    <p>Suma przychodów: {{ przychody_sum }}</p>
+    <p>Suma wydatków: {{ wydatki_sum }}</p>
+    <h3>Bilans</h3>
+    <p>{{ bilans }}</p>
+    <button type="button">
+        <a href="{% url 'home' %}" class="btn btn-primary">Wróć</a>
+    </button>
 {% endblock %}
